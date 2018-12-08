@@ -21,11 +21,24 @@ def free_tasks(g):
     for k in free:
         g.pop(k)
     return free
-def printTopSort(g):
+
+def clean_up(elem, g):
+    for k in g.keys():
+        if elem in g[k]:
+            g[k].remove(elem)
     
-    free = free_tasks(g)
-    print(free)
-    print(g)
+
+def printTopSort(g):
+    free = []    
+    result = ''
+    while(len(g) > 0 ):
+        free.extend(free_tasks(g))
+        free.sort()
+        fElem = free[0]
+        result += fElem
+        free = free[1:]
+        clean_up(fElem, g)
+    return result
     # get zero deps and add it to list
     # remove from graph
     # print first from list
@@ -42,7 +55,8 @@ def main():
     print("Welcome to Day7")
     g = parseInput()
     #print(g)
-    printTopSort(g)
+    res = printTopSort(g)
+    print(res)
 
 if __name__ == "__main__":
     main()
