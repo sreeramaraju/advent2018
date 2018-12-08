@@ -39,15 +39,6 @@ def printTopSort(g):
         free = free[1:]
         clean_up(fElem, g)
     return result
-    # get zero deps and add it to list
-    # remove from graph
-    # print first from list
-        #clear dependencies
-    # again repeat
-    
-    nodeps = sorted([k for k in g.keys() if len(g[k]) == 0])
-    print(nodeps)
-    #remove first one print and update 
         
 
 
