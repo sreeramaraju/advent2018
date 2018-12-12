@@ -31,11 +31,11 @@ def play(marble):
     
     for i in range(2,marble+1):
         if i%23 == 0:
+            print(i)
             #print(i, len(marbles), curr_index)
             curr_index -= 7
             if curr_index < 0:
                 curr_index = len(marbles) - abs(curr_index)
-            print(i, "-", marbles[curr_index], "==> ", curr_index)
             score[i%players] +=i
             score[i%players] += marbles.pop(curr_index)
             if curr_index == len(marbles):
@@ -52,7 +52,7 @@ def main():
     print("Day 9")
     global score
     global players
-    marbles = 72170
+    marbles = 72170*100 
     players = 470 
     #marbles = 25 
     a, b = play(marbles)
